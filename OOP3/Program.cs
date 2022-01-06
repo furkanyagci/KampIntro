@@ -17,11 +17,12 @@ namespace OOP3
             ILoggerService databaseLoggerService = new DatabaseLoggerService();//ister böyle newleyip basvuruManager.BasvuruYap metodunda new DatabaseLoggerService() yerine databaseLoggerService yazabiliriz.yada basvuruManager.BasvuruYap metodunda yazdığı gibi newleyebiliriz.
             ILoggerService fileLoggerService = new FileLoggerService();
 
+            List<ILoggerService> loggers = new List<ILoggerService> { new SmsLoggerService(), new FileLoggerService() };//basvuruManager.BasvuruYap daki gibi newleyedebiliriz buradaki gibi listemizi oluşturup loggers değikenini orayada yazabiliriz.
 
             BasvuruManager basvuruManager = new BasvuruManager();
-            basvuruManager.BasvuruYap(konutKrediManager,new DatabaseLoggerService());//BasvuruYap metoduIKrediManager tipinde parametre istiyor IKrediManager implemente edilmiş class'lardan birini verebiliriz.
+            basvuruManager.BasvuruYap(konutKrediManager, new List<ILoggerService>{ new SmsLoggerService(), new DatabaseLoggerService()});//BasvuruYap metoduIKrediManager tipinde parametre istiyor IKrediManager implemente edilmiş class'lardan birini verebiliriz.//Çoklu logger göndereceğimiz için List yaptık.
 
-            List<IKrediManager> krediler = new List<IKrediManager>() {ihtiyacKrediManager,tasitKrediManager,konutKrediManager };
+            List<IKrediManager> krediler = new List<IKrediManager>() { ihtiyacKrediManager, tasitKrediManager, konutKrediManager };
 
             //basvuruManager.KrediOnBilgilendirmesiYap(krediler);
 
