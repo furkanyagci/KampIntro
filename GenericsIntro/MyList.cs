@@ -25,12 +25,12 @@ namespace GenericsIntro
             items[items.Length - 1] = item;//Yeni gelen değeri items'a ekledik. items.Length - 1 yapma sebebimiz dizi 6 elemanlıysa index 5 dir çünkü index 0 dan başlar 6-1=5 yani 5. index'e eklemek için.
         }
 
-        public int Length//Eleman sayısını veren metot.
+        public int Length//Eleman sayısını verir
         {
             get { return items.Length; }
         }
 
-        public T[] Items//Elemanları veren metot.
+        public T[] Items//Elemanları verir
         {
             get { return items; }
         }
